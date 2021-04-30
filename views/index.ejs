@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+
+<body class="d-flex justify-content-center py-2 w-100">
+    <div class="main_wrapper d-flex flex-column">
+        <button class="btn btn-primary text-decoration-none text-white" data-toggle="modal" data-target="#modal" id="add_button">Add Recipe</button>
+
+        <%- include('partials/modal'); %>
+        
+
+        <% for (recipe of recipes){ %>
+            <div class="recipes_wrapper list-group w-100">
+                <div class="recipe_block w-100 list-group-item mt-4">
+                    <div class="justify-content-between d-flex">
+                        <%= recipe.name %>
+                        <i class="fas fa-caret-square-down view_recipe"></i>
+                    </div>
+                    <div class="description-wrapper">
+                        <div class="my-4">
+                            <div class="description-block py-1">
+                                <span class="header-text">Ingredients: </span><%= recipe.ingredients %>
+                            </div>
+                            <div class="description-block py-1">
+                                <span class="header-text">Directions: </span><%= recipe.directions %>
+                            </div>
+                        </div>
+                        <div class="controls py-3 d-flex nav-tab">
+                            <i class="fas fa-edit text-primary control-but edit_button" id="edit_button" data-id="<%= recipe.id %>"></i>
+                            <i class="fas fa-minus-circle ml-2 text-danger control-but delete_button" id="detele_button" data-id="<%= recipe.id %>"></i>
+                        </div>
+                    </div>
+                </div>
+        <% } %>
+            
+
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="/static/js/modal_control.js"></script>
+    <script src="/static/js/dropdown.js"></script>
+    
+    <script src="/static/js/delete_recipe.js"></script>
+</body>
+
+</html>

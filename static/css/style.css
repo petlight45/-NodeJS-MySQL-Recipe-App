@@ -1,0 +1,44 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+.main_wrapper{
+    width: 90%;
+    display: inline-block;
+}
+
+@media(min-width:576px){
+    .main_wrapper{
+        width: 400px;
+    } 
+}
+
+
+@media(min-width:992px){
+    .main_wrapper{
+        width: 600px;
+    } 
+}
+
+
+.view_recipe{
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.view_recipe:hover{
+    color: rgb(150, 150, 150);
+}
+
+.controls{
+    border-top: 1px solid rgba(0,0,0,.125);
+}
+
+.control-but{
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.description-wrapper{
+    display: none;
+}
